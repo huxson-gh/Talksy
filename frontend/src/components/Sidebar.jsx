@@ -35,7 +35,7 @@ const Sidebar = ({ selectedUser, setSelectedUser }) => {
           </div>
         </div>
 
-        <div className="bg-[#2b2933] rounded-full flex items-center gap-2 py-3 px-4 mt-5">
+        <div className="bg-gray-100/12 rounded-full flex items-center gap-2 py-3 px-4 mt-5">
           <img src={assets.search_icon} alt="Search" className="w-3" />
           <input
             // onChange={(e) => setInput(e.target.value)}
@@ -55,7 +55,7 @@ const Sidebar = ({ selectedUser, setSelectedUser }) => {
             }}
             key={index}
             className={`relative flex items-center gap-2 p-2 pl-4 rounded cursor-pointer max-sm:text-sm ${
-              selectedUser?._id === user._id && "bg-[#2C274A]/50"
+              selectedUser?._id === user._id && "bg-gray-500/30"
             }`}
           >
             <img
