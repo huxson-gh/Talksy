@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-se
+// Function to connect to the mongodb database
 const connectDB = async () => {
   try {
     mongoose.connection.on("connected", () =>
