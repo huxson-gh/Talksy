@@ -1,10 +1,10 @@
 import Message from "../models/Messages.js";
 import User from "../models/User.js";
-import connectCloudinary from "../lib/cloudinary.js";
+import cloudinary from "../lib/cloudinary.js";
 import { io, userSocketMap } from "../server.js";
 
 
-// Get all users except the logged in user
+// Get all users except the logged in user----------------------------------------------------------------
 export const getUsersForSidebar = async (req, res) => {
   try {
     const userId = req.user._id;
@@ -36,7 +36,7 @@ export const getUsersForSidebar = async (req, res) => {
 };
 
 
-// Get all messages for selected user
+// Get all messages for selected user----------------------------------------------------------------
 export const getMessages = async (req, res) => {
   try {
     const { id: selectedUserId } = req.params;
@@ -61,7 +61,7 @@ export const getMessages = async (req, res) => {
   }
 };
 
-// API to mark messages as seen using message id
+// API to mark messages as seen using message id----------------------------------------------------------------
 export const markMessageAsSeen = async (req, res) => {
   try {
     const { id } = req.params;
@@ -75,7 +75,7 @@ export const markMessageAsSeen = async (req, res) => {
   }
 };
 
-// Send message to selected user
+// Send message to selected user----------------------------------------------------------------
 export const sendMessage = async (req, res) => {
   try {
     const { text, image } = req.body;
@@ -96,7 +96,7 @@ export const sendMessage = async (req, res) => {
     });
 
 
-    // Emit the new message to the receiver's socket
+    // Emit the new message to the receiver's socket--------------------------
     const receiverSocketId = userSocketMap[receiverId];
 
     if (receiverSocketId) {
