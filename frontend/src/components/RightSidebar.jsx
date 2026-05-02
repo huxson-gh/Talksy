@@ -5,7 +5,7 @@ import { ChatContext } from "../../context/ChatContext";
 import { AuthContext } from "../../context/AuthContext";
 
 const RightSidebar = () => {
-  const { selectedUser, messages } = useContext(ChatContext);
+  const { selectedUser, messages, showRightSidebar, setShowRightSidebar } = useContext(ChatContext);
   const { logout, onlineUsers } = useContext(AuthContext);
   const [msgImages, setMsgImages] = useState([]);
 
@@ -19,10 +19,17 @@ const RightSidebar = () => {
   return (
     selectedUser && (
       <div
-        className={`bg-[#8185B2]/10 text-white w-full relative overflow-y-scroll ${
-          selectedUser ? "max-md:hidden" : ""
+        className={`bg-[#8185B2]/10 text-white overflow-y-scroll transition-all duration-300 lg:relative lg:w-full lg:block ${
+          showRightSidebar 
+            ? "max-lg:fixed max-lg:inset-y-0 max-lg:right-0 max-lg:w-3/4 max-lg:z-50 max-lg:bg-[#282142] max-lg:shadow-2xl" 
+            : "max-lg:hidden"
         }`}
       >
+        {/* Close Button on Mobile */}
+        <div className="lg:hidden absolute top-5 right-5 p-1 cursor-pointer z-50 bg-gray-500/30 rounded-full" onClick={() => setShowRightSidebar(false)}>
+          <span className="text-white text-lg font-bold px-2">&times;</span>
+        </div>
+
         <div className="pt-16 flex flex-col items-center gap-2 text-xs font-light mx-auto">
           <img
             src={selectedUser?.profilePic || assets.avatar_icon}

@@ -81,7 +81,7 @@ const ChatContainer = () => {
           onClick={() => setShowRightSidebar(true)}
           src={assets.help_icon}
           alt="icon"
-          className="max-w-5 cursor-pointer"
+          className="max-w-5 cursor-pointer lg:hidden"
         />
       </div>
 
@@ -102,7 +102,7 @@ const ChatContainer = () => {
               />
             ) : (
               <p
-                className={`p-2 max-w-[200px] md:text-sm font-light rounded-lg mb-8 break-all bg-violet-500/30 text-white ${
+                className={`p-2 max-w-[200px] lg:text-sm font-light rounded-lg mb-8 break-all bg-violet-500/30 text-white ${
                   msg.senderId === authUser._id
                     ? "rounded-br-none"
                     : "rounded-bl-none"
@@ -166,7 +166,7 @@ const ChatContainer = () => {
       </div>
     </div>
   ) : (
-    <div className="flex flex-col items-center justify-center gap-2 text-gray-500 bg-white/10 max-md:hidden">
+    <div className="flex flex-col items-center justify-center gap-2 text-gray-500 bg-white/10 max-lg:hidden">
       <img src={assets.logo_icon} alt="logo" className="max-w-26" />
       <p className="text-lg mt-2 font-medium text-white">
         Chat Anytime, Anywhere
