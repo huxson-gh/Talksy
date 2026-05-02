@@ -12,7 +12,7 @@
 
 ## 🌐 Live Demo
 
-> 🔗 **Live Website:** [Talksy ↗]()  
+> 🔗 **Live Website:** [Talksy ↗](https://talksy-lovat.vercel.app)  
 > _(Deployed on Vercel)_
 
 ---
