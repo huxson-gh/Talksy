@@ -7,7 +7,7 @@ import { AuthContext } from "../../context/AuthContext";
 import toast from "react-hot-toast";
 
 const ChatContainer = () => {
-  const { messages, selectedUser, setSelectedUser, sendMessage, getMessages } = useContext(ChatContext);
+  const { messages, selectedUser, setSelectedUser, sendMessage, getMessages, setShowRightSidebar } = useContext(ChatContext);
 
   const { authUser, onlineUsers } = useContext(AuthContext);
 
@@ -78,6 +78,7 @@ const ChatContainer = () => {
           className=" max-w-5 cursor-pointer"
         />
         <img
+          onClick={() => setShowRightSidebar(true)}
           src={assets.help_icon}
           alt="icon"
           className="max-w-5 cursor-pointer"
